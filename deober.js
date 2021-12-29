@@ -436,6 +436,8 @@ const AST = (0, parser_1.parse)(script, {});
             }
         });
     },
+});
+(0, traverse_1.default)(AST, {
     MemberExpression(path) {
         if (path.node.computed && path.node.property.type == "StringLiteral") {
             path.node.property = path.node.property;

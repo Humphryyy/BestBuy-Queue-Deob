@@ -459,6 +459,10 @@ traverse(AST, {
       }
     });
   },
+
+});
+
+traverse(AST, {
   MemberExpression(path: NodePath<t.MemberExpression>) {
     if (path.node.computed && path.node.property.type == "StringLiteral") {
       path.node.property = path.node.property as t.StringLiteral;
@@ -469,7 +473,6 @@ traverse(AST, {
     }
   },
 });
-
 
 const final_code = generate(AST, beautify_opts).code;
 
